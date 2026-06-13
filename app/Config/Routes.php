@@ -20,5 +20,4 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
 $routes->group('api', function ($routes) {
     $routes->get('readsoal', 'api\ApiController::index');
     $routes->get('readsoal-by-id/(:num)', 'api\ApiController::readSoalByLevel/$1');
-    $routes->post('submit-score', 'api\ApiController::submitScore');
 });
