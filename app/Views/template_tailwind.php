@@ -77,6 +77,11 @@
                     <i class="nav-icon fas fa-fw fa-tachometer-alt w-6 text-center"></i>
                     <span class="nav-text font-medium ml-3">Data Soal</span>
                 </a>
+                
+                <a href="<?= base_url('admin/siswa') ?>" class="flex items-center px-3 py-2.5 rounded-lg transition-all <?= ($title == 'Data Siswa') ? 'bg-white text-primary shadow-md font-bold dark:bg-slate-800 dark:text-emerald-400' : 'text-emerald-100 hover:bg-white/10 dark:hover:bg-slate-800/50 hover:text-white' ?>">
+                    <i class="nav-icon fas fa-fw fa-users w-6 text-center"></i>
+                    <span class="nav-text font-medium ml-3">Data Siswa</span>
+                </a>
             </nav>
 
             <div class="p-4 border-t border-white/20 dark:border-slate-800">

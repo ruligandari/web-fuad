@@ -42,4 +42,39 @@ class ApiController extends BaseController
             'message' => 'Data tidak ditemukan'
         ]);
     }
+
+    public function submitScore()
+    {
+        $json = $this->request->getJSON();
+        
+        $nama = $json->nama ?? $this->request->getPost('nama');
+        $level = $json->level ?? $this->request->getPost('level');
+        $score = $json->score ?? $this->request->getPost('score');
+
+        if (empty($nama) || empty($level) || $score === null || $score === '') {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Mohon lengkapi data: nama, level, score'
+            ]);
+        }
+
+        try {
+            $siswaModel = new \App\Models\SiswaModel();
+            $siswaModel->insert([
+                'nama' => $nama,
+                'level' => $level,
+                'score' => $score
+            ]);
+
+            return $this->response->setJSON([
+                'success' => true,
+                'message' => 'Data berhasil disimpan'
+            ]);
+        } catch (\Exception $e) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => $e->getMessage()
+            ]);
+        }
+    }
 }

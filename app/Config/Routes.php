@@ -14,10 +14,14 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
     $routes->post('soal/store', 'admin\SoalController::store');
     $routes->post('soal/update/(:num)', 'admin\SoalController::update/$1');
     $routes->get('soal/delete/(:num)', 'admin\SoalController::delete/$1');
+
+    $routes->get('siswa', 'admin\SiswaController::index');
+    $routes->get('siswa/delete/(:num)', 'admin\SiswaController::delete/$1');
 });
 
 // routes group api
 $routes->group('api', function ($routes) {
     $routes->get('readsoal', 'api\ApiController::index');
     $routes->get('readsoal-by-id/(:num)', 'api\ApiController::readSoalByLevel/$1');
+    $routes->post('submit-score', 'api\ApiController::submitScore');
 });
